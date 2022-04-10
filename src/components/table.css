@@ -1,0 +1,60 @@
+.dp-head {
+	background-color: lightcyan;
+}
+
+.dp-head h1 {
+	font-weight: 700;
+}
+
+.dp-head button {
+	border: none;
+	background-color: lightcyan;
+}
+
+.dp-table {
+	border-collapse: separate;
+	border-spacing: 1rem;
+	background-color: white;
+}
+
+.dp-table button {
+    border: none;
+    background-color: inherit;
+    transition: 200ms;
+}
+
+.dp-table td {
+	padding: 2rem 1rem;
+	text-align: center;
+}
+
+.dp-table tr .badge {
+    padding: .35rem;
+    background-color: rgb(240, 240, 240);
+}
+
+.dp-table tr button:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+.dp-table tr:nth-of-type(2n) button:hover {
+    background-color: rgb(210, 210, 210);
+}
+
+.dp-table tr:nth-of-type(2n) .badge {
+    background-color: rgb(210, 210, 210);
+}
+
+.dp-table tr:nth-of-type(2n) td {
+	background-color: #f0f0f0;
+}
+
+.dp-table ul {
+    position: inherit;
+	background-color: inherit;
+}
+
+.dp-table li {
+    position: inherit;
+	background-color: inherit;
+}

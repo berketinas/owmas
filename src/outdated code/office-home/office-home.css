@@ -1,0 +1,36 @@
+#user-info {
+	min-width: 345px;
+	min-height: 350px;
+}
+
+#order-info {
+	min-width: 345px;
+	min-height: 216px;
+}
+
+#supply-order-info {
+	min-width: 345px;
+	min-height: 96px;
+}
+
+#user-info ul {
+	height: 50vh;
+	width: 18vw;
+	min-width: 200px;
+	min-height: 350px;
+}
+
+.Home .info {
+	background-color: lightblue;
+}
+
+.Home li {
+	background-color: lightblue;
+	border: none;
+	padding: 0;
+}
+
+.Home > div > div {
+	height: 55vh;
+	min-height: 385px;
+}

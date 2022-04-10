@@ -1,0 +1,35 @@
+.menu {
+	height: 100vh;
+}
+
+.menu a {
+	width: 80%;
+	margin: 10% auto;
+	border: none;
+	background-color: lightcyan;
+	color: black;
+	transition: all 250ms;
+}
+
+.menu a:hover {
+	background-color: lightskyblue;
+}
+
+.menu #bootstrap-override .list-group-item.active {
+	margin: 10% auto;
+	box-shadow: 0 0.5rem 0.5rem -0.4rem lightskyblue;
+	transform: translateY(-0.15rem);
+}
+
+.menu img {
+	width: 100%;
+	height: 120px;
+	min-height: 100px;
+}
+
+.menu > div {
+	height: 100%;
+}
+.menu svg {
+	margin-right: 0.5rem;
+}

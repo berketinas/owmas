@@ -1,0 +1,40 @@
+#user-info {
+	min-width: 345px;
+	min-height: 350px;
+}
+
+#order-info {
+	min-width: 345px;
+	min-height: 216px;
+}
+
+#supply-order-info {
+	min-width: 345px;
+	min-height: 96px;
+}
+
+#user-info ul {
+	height: 50vh;
+	width: 25vw;
+	min-width: 300px;
+	min-height: 350px;
+	color: black;
+}
+
+.Home .info {
+	background-color: lightsteelblue;
+}
+
+.Home li {
+	background-color: lightsteelblue;
+	padding: 0;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: solid 1px rgba(0, 0, 0, 0.125);
+}
+
+.Home > div > div {
+	height: 55vh;
+	min-height: 385px;
+}

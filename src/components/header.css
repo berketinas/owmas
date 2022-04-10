@@ -1,0 +1,12 @@
+.signout {
+	height: 100%;
+}
+
+.signout button {
+	width: 100px;
+}
+
+.nametag p {
+	text-align: end;
+	line-height: 0.4rem;
+}
