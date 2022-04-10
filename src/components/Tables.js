@@ -19,7 +19,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
     const getCategories = async (token) => {
         let fetched = []
 
-        const response = await fetch('/api/category?page=0&size=100&sort=id,desc',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/category?page=0&size=100&sort=id,desc',
         {
             method: 'GET',
             headers: { 'Content-type': 'application/json',
@@ -40,7 +40,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
     const getProducts = async (token) => {
         let fetched = []
 
-        const response = await fetch('/api/product?page=0&size=100&sort=id,desc',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/product?page=0&size=100&sort=id,desc',
         {
             method: 'GET',
             headers: { 'Content-type': 'application/json',
@@ -61,7 +61,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
     const getSupplies = async (token) => {
         let fetched = []
 
-        const response = await fetch('/api/supply?page=0&size=100&sort=id,desc',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/supply?page=0&size=100&sort=id,desc',
         {
             method: 'GET',
             headers: { 'Content-type': 'application/json',
@@ -82,7 +82,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
     const getOrders = async (token) => {
         let fetched = []
 
-        const response = await fetch('/api/order?page=0&size=100&sort=id,desc',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/order?page=0&size=100&sort=id,desc',
         {
             method: 'GET',
             headers: { 'Content-type': 'application/json',
@@ -102,7 +102,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
 
     const getCustomers = async (token) => {
         let fetched = []
-        const response = await fetch('/api/customer?page=0&size=100&sort=id,desc',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/customer?page=0&size=100&sort=id,desc',
         {
             method: 'GET',
             headers: { 'Content-type': 'application/json',
@@ -123,7 +123,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
     const getRequests = async (token) => {
         let fetched = []
 
-        const response = await fetch('/api/request?page=0&size=100&sort=id,desc',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/request?page=0&size=100&sort=id,desc',
         {
             method: 'GET',
             headers: { 'Content-type': 'application/json',
@@ -158,7 +158,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
 
     const addSupply = async (toAdd, token) => {
         var newSupply = {}
-        const response = await fetch('/api/supply',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/supply',
         {
             method: 'POST',
             headers: { 'Content-type': 'application/json',
@@ -177,7 +177,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
 
     const addOrder = async (toAdd, token) => {
         var newOrder = {}
-        const response = await fetch('/api/order',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/order',
         {
             method: 'POST',
             headers: { 'Content-type': 'application/json',
@@ -196,7 +196,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
 
     const addProduct = async (toAdd, token) => {
         var newProduct = {}
-        const response = await fetch('/api/product',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/product',
         {
             method: 'POST',
             headers: { 'Content-type': 'application/json',
@@ -217,7 +217,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
         var newCustomer = {}
         toAdd.firstName = toAdd.name[0]
         toAdd.lastName = toAdd.name[1]
-        const response = await fetch('/api/customer',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/customer',
         {
             method: 'POST',
             headers: { 'Content-type': 'application/json',
@@ -236,7 +236,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
 
     const addCategory = async (toAdd, token) => {
         var newCategory = {}
-        const response = await fetch('/api/category',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/category',
         {
             method: 'POST',
             headers: { 'Content-type': 'application/json',
@@ -256,7 +256,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
     const patchSupplies = async (toEdit, token) => {
         var newSupply = {}
 
-        const response = await fetch('/api/supply',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/supply',
         {
             method: 'PATCH',
             headers: { 'Content-type': 'application/json',
@@ -276,7 +276,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
     const patchCategories = async (toEdit, token) => {
         var newCategory = {}
 
-        const response = await fetch('/api/category',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/category',
         {
             method: 'PATCH',
             headers: { 'Content-type': 'application/json',
@@ -296,7 +296,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
     const patchProducts = async (toEdit, token) => {
         var newProduct = {}
 
-        const response = await fetch('/api/product',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/product',
         {
             method: 'PATCH',
             headers: { 'Content-type': 'application/json',
@@ -317,7 +317,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
         var newCustomer = {}
         toEdit.firstName = toEdit.name[0]
         toEdit.lastName = toEdit.name[1]
-        const response = await fetch('/api/customer',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/customer',
         {
             method: 'PATCH',
             headers: { 'Content-type': 'application/json',
@@ -337,7 +337,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show }) =>
     const patchOrders = async (toEdit, token) => {
         var newOrder = {}
 
-        const response = await fetch('/api/order',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/order',
         {
             method: 'PATCH',
             headers: { 'Content-type': 'application/json',

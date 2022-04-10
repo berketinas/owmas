@@ -22,7 +22,7 @@ function App() {
                 building: '',
             }
 
-        const response = await fetch('/api/auth/signin/',
+        const response = await fetch('https://operational-workflow.herokuapp.com/api/auth/signin/',
             {
                 method: 'POST',
                 headers: { 'Content-type': 'application/json', },
