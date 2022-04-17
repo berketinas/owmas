@@ -352,7 +352,7 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                         <label className="list-attr" for="order-status">New Order Status</label>
                         <div className="form-row">
                             <select className="form-control" id="order-status" onChange={(e) => setStatus(e.target.value)}>
-                                <option selected disabled hidden>{`Current Status: ${orders.find(order => editAction == order.id).status}`}</option>
+                                <option selected disabled hidden>{`Current: ${orders.find(order => editAction == order.id).status}`}</option>
                                 <option value='Waiting for Production'>Waiting for Production</option>
                                 <option value='Waiting for Graphics Designer'>Waiting for Graphics Designer</option>
                                 <option value='Shipping to Warehouse'>Shipping to Warehouse</option>
@@ -384,7 +384,7 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                         <label className="list-attr" for="category">New Category</label>
                         <div className="form-row">
                             <select className="form-control" id="category" onChange={(e) => setCategoryId(parseInt(e.target.value))}>
-                                    <option selected disabled hidden>{`Current Category: ${supplies.find(supply => editAction == supply.id).category.name}`}</option>
+                                    <option selected disabled hidden>{`Current: ${supplies.find(supply => editAction == supply.id).category.name}`}</option>
                                     {
                                         categories.map((category) => (<option value={`${category.id}`}>{`${category.name}`}</option>))
                                     }
@@ -392,7 +392,7 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                         </div>
                     </div>
                     <div className="row input-group py-4 d-flex justify-content-end">
-                        <button type='button' onClick={() => console.log(patchSupplies({categoryId: (categoryId ? categoryId : supplies.find(supply => editAction == supply.id).categoryId), id: editAction, name: (name ? name : supplies.find(supply => editAction == supply.id).name)}, token))} className='btn btn-info col-2 text-dark submit'>Edit</button>
+                        <button type='button' onClick={() => console.log(patchSupplies({categoryId: (categoryId ? categoryId : supplies.find(supply => editAction == supply.id).category.id), id: editAction, name: (name ? name : supplies.find(supply => editAction == supply.id).name)}, token))} className='btn btn-info col-2 text-dark submit'>Edit</button>
                     </div>
                 </form>
             </div>
@@ -408,7 +408,7 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                         <label className="list-attr" for="category">New Category</label>
                         <div className="form-row">
                             <select className="form-control" id="category" onChange={(e) => setCategoryId(parseInt(e.target.value))}>
-                                <option selected disabled hidden>{`Current Category: ${products.find(product => editAction == product.id).category.name}`}</option>
+                                <option selected disabled hidden>{`Current: ${products.find(product => editAction == product.id).category.name}`}</option>
                                 {
                                     categories.map((category) => (<option value={`${category.id}`}>{`${category.name}`}</option>))
                                 }
@@ -431,7 +431,7 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                         </div>
                     </div>
                     <div className="row input-group py-4 d-flex justify-content-end">
-                        <button type='button' onClick={() => patchProducts({categoryId: (categoryId ? categoryId : products.find(product => editAction == product.id).categoryId), id: editAction, name: (name ? name : products.find(product => editAction == product.id).name), price: (price ? price : products.find(product => editAction == product.id).price)}, token)} className='btn btn-info col-2 text-dark submit'>Edit</button>
+                        <button type='button' onClick={() => patchProducts({categoryId: (categoryId ? categoryId : products.find(product => editAction == product.id).category.id), id: editAction, name: (name ? name : products.find(product => editAction == product.id).name), price: (price ? price : products.find(product => editAction == product.id).price)}, token)} className='btn btn-info col-2 text-dark submit'>Edit</button>
                     </div>
                 </form>
             </div>

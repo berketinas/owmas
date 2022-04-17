@@ -114,7 +114,7 @@ const Tables = ({ token, privilege, tableId, handleClose, handleShow, show, cust
 
     const patchSupplies = async (toEdit) => {
         let newSupply = {}
-
+        console.log(toEdit)
         await fetch('https://operational-workflow.herokuapp.com/api/supply',
         {
             method: 'PATCH',
