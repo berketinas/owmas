@@ -1,21 +1,32 @@
 .custom-modal-overlay {
 	top: 0;
-	left: 0;
+	right: 0;
 	height: 100vh;
 	width: 100vw;
 	background-color: gray;
 	opacity: 0.5;
     z-index: 9;
+    transition: width 250ms ease-out;
 }
 
 .custom-modal {
 	opacity: 1;
 	z-index: 10;
 	top: 20vh;
-	left: 42vw;
+    right: 0;
     background-color: lightsteelblue;
 	padding: 2rem 3rem;
-    min-width: 400px;
+    /* min-width: 400px; */
+    transition: width 250ms ease-out;
+    overflow: clip;
+}
+
+.modal-form {
+    width: 27vw;
+}
+
+.modal-menu {
+    width: 23vw;
 }
 
 .custom-modal .close {

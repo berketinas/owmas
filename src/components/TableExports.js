@@ -190,11 +190,11 @@ const addressTBody = (address) => {
 }
 
 const balanceTBody = (balance) => {
-    return (<td><span>${balance.toFixed(2)}</span></td>)
+    return (<td><span>{`${balance.toFixed(2)}`}</span></td>)
 }
 
 const customerTBody = (customer) => {
-    return (<td><span>{customer.firstName} {customer.lastName}</span></td>)
+    return (<td><span>{`${customer.firstName} ${customer.lastName}`}</span></td>)
 }
 
 const creationTBody = (creation) => {
@@ -216,7 +216,7 @@ const statusTBody = (status) => {
 }
 
 const totalTBody = (total) => {
-    return (<td><span>${total.toFixed(2)}</span></td>)
+    return (<td><span>{`${total.toFixed(2)}`}</span></td>)
 }
 
 const categoryTBody = (category) => {
@@ -224,7 +224,7 @@ const categoryTBody = (category) => {
 }
 
 const unitTBody = (unit) => {
-    return (<td><span>${unit.toFixed(2)}</span></td>)
+    return (<td><span>{`${unit.toFixed(2)}`}</span></td>)
 }
 
 const pInCategoryTBody = (pInCategory) => {

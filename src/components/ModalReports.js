@@ -1,8 +1,8 @@
 import './modal.css'
-import { icons } from '.'
+import { icons, TableMenu } from '.'
 import { useState, useEffect } from 'react'
 
-const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, addSupply, addProduct, addCustomer, addCategory, categories, products, supplies, orders, customers, patchSupplies, patchCategories, patchProducts, patchCustomers, patchOrders, editAction, getProducts, getCategories, getCustomers }) => {
+const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, addSupply, addProduct, addCustomer, addCategory, categories, products, supplies, orders, customers, patchSupplies, patchCategories, patchProducts, patchCustomers, patchOrders, editAction, tableFilter, setTableFilter }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [customerId, setCustomerId] = useState(0)
@@ -16,6 +16,20 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
     const [address, setAddress] = useState('')
 
     const [basket, setBasket] = useState([])
+
+    useEffect(() => {
+        setName('')
+        setEmail('')
+        setCustomerId(0)
+        setStatus('')
+        setProductId(0)
+        setQuantity('')
+        setCategoryId(0)
+        setPrice(0)
+        setBalance(0)
+        setAddress('')
+        setBasket([])
+    }, [show])
     
     const addToBasket = (pId, pAmount) => {
         let amountInt = parseInt(pAmount)
@@ -34,19 +48,15 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
         }
     }
 
-    useEffect(() => {
-        getProducts(token)
-        getCategories(token)
-        getCustomers(token)
-    }, []);
-
-    if(show == 1) {
+    if(show == 0) {
+        return <div className='modal-form'></div>
+    } else if(show == 1) {
         if(privilege == 1) {
             if(tableId == 2) {
                 return (
-                    <div className='custom-modal col-4 rounded shadow position-fixed p-0'>
+                    <div className='modal-form'>
                         <div className='d-flex justify-content-end pt-3 px-3'>
-                            <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                            <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                         </div>
                         <form className="row px-4 py-1">
                             <div className="row input-group mx-auto my-2 py-3">
@@ -84,9 +94,9 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                 )
             } else if(tableId == 3) {
                 return (
-                    <div className='custom-modal col-4 rounded shadow position-fixed p-0'>
+                    <div className='modal-form'>
                         <div className='d-flex justify-content-end pt-3 px-3'>
-                            <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                            <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                         </div>
                         <form className="row px-4 py-1">
                             <div className="row input-group mx-auto my-2 py-3">
@@ -152,9 +162,9 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                 )
             } else if(tableId == 5) {
                 return (
-                    <div className='custom-modal col-4 rounded shadow position-fixed p-0'>
+                    <div className='modal-form'>
                         <div className='d-flex justify-content-end pt-3 px-3'>
-                            <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                            <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                         </div>
                         <form className="row px-4 py-1">
                             <div className="row input-group mx-auto my-2 py-3">
@@ -182,9 +192,9 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                 )
             } else if(tableId == 6) {
                 return (
-                    <div className='custom-modal col-4 rounded shadow position-fixed p-0'>
+                    <div className='modal-form'>
                         <div className='d-flex justify-content-end pt-3 px-3'>
-                            <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                            <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                         </div>
                         <form className="row px-4 py-1">
                             <div className="row input-group mx-auto my-2 py-3">
@@ -221,9 +231,9 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                 )
             } else if(tableId == 7) {
                 return (
-                    <div className='custom-modal col-2 rounded shadow position-fixed p-0'>
+                    <div className='modal-form'>
                         <div className='d-flex justify-content-end pt-3 px-3'>
-                            <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                            <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                         </div>
                         <form className="row px-4 py-1">
                             <div className="row input-group mx-auto my-2 py-3">
@@ -242,9 +252,9 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
         } else if(privilege == 3) {
             if(tableId == 5) {
                 return (
-                    <div className='custom-modal col-2 rounded shadow position-fixed p-0'>
+                    <div className='modal-form'>
                         <div className='d-flex justify-content-end pt-3 px-3'>
-                            <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                            <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                         </div>
                         <form className="row px-4 py-1">
                             <div className="row input-group mx-auto my-2 py-3">
@@ -275,9 +285,9 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
         }
     } else if(show == 2) {
         return (
-            <div className='custom-modal col-2 rounded shadow position-fixed p-0'>
+            <div className='modal-form'>
                 <div className='d-flex justify-content-end pt-3 px-3'>
-                    <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                    <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                 </div>
                 <form className="row px-4 py-3 rounded">
                     <p className="py-2">Are you sure you want to <span className="list-attr">delete</span> this entry?</p>
@@ -287,23 +297,27 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                 </form>
             </div>
         )
+    } else if(show == 3) {
+        return (
+            <TableMenu privilege={privilege} tableId={tableId} handleClose={handleClose} tableFilter={tableFilter} setTableFilter={setTableFilter} />
+        )
     } else if(show == 12) {
         return (
-            <div className='custom-modal col-4 rounded shadow position-fixed p-0'>
+            <div className='modal-form'>
                 <div className='d-flex justify-content-end pt-3 px-3'>
-                    <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                    <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                 </div>
                 <form className="row px-4 py-1">
                     <div className="row input-group mx-auto my-2 py-3">
                         <label className="list-attr" for="name">New Name</label>
                         <div className="form-row">
-                            <input className="form-control" type="text" id="name" onChange={(e) => setName(e.target.value.split(' '))} placeholder={`Current Name: ${customers.find(customer => editAction == customer.customerId).firstName} ${customers.find(customer => editAction == customer.customerId).lastName}`}/>
+                            <input className="form-control" type="text" id="name" onChange={(e) => setName(e.target.value.split(' '))} placeholder={`Current: ${customers.find(customer => editAction == customer.customerId).firstName} ${customers.find(customer => editAction == customer.customerId).lastName}`}/>
                         </div>
                     </div>
                     <div className="row input-group mx-auto my-2 py-3">
                         <label className="list-attr" for="email">New Email</label>
                         <div className="form-row">
-                            <input className="form-control" type="text" id="email" onChange={(e) => setEmail(e.target.value)} placeholder={`Current Email: ${customers.find(customer => editAction == customer.customerId).email}`}/>
+                            <input className="form-control" type="text" id="email" onChange={(e) => setEmail(e.target.value)} placeholder={`Current: ${customers.find(customer => editAction == customer.customerId).email}`}/>
                         </div>
                     </div>
                     <div className="row input-group mx-auto my-2 py-3">
@@ -312,26 +326,26 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                             <div className="input-group-prepend d-flex">
                                 <div className="input-group-text">$</div>
                             </div>
-                            <input className="form-control" type="text" id="balance" onChange={(e) => setBalance(parseFloat(e.target.value))} placeholder={`Current Balance: ${customers.find(customer => editAction == customer.customerId).balance}`}/>
+                            <input className="form-control" type="text" id="balance" onChange={(e) => setBalance(parseFloat(e.target.value))} placeholder={`Current: ${customers.find(customer => editAction == customer.customerId).balance}`}/>
                         </div>
                     </div>
                     <div className="row input-group mx-auto my-2 py-3">
                         <label className="list-attr" for="address">New Address</label>
                         <div className="form-row">
-                            <textarea className="form-control" id="address" onChange={(e) => setAddress(e.target.value)} placeholder={`Current Address: ${customers.find(customer => editAction == customer.customerId).address}`} rows="4"/>
+                            <textarea className="form-control" id="address" onChange={(e) => setAddress(e.target.value)} placeholder={`Current: ${customers.find(customer => editAction == customer.customerId).address}`} rows="4"/>
                         </div>
                     </div>
                     <div className="row input-group py-4 d-flex justify-content-end">
-                        <button type='button' className='btn btn-info col-2 text-dark submit' onClick={() => patchCustomers({address, balance, customerId: editAction, email, name}, token)}>Edit</button>
+                        <button type='button' className='btn btn-info col-2 text-dark submit' onClick={() => patchCustomers({address: (address ? address : customers.find(customer => editAction == customer.customerId).address), balance: (balance ? balance : customers.find(customer => editAction == customer.customerId).balance), customerId: editAction, email: (email ? email : customers.find(customer => editAction == customer.customerId).email), name: (name ? name : customers.find(customer => editAction == customer.customerId).name)}, token)}>Edit</button>
                     </div>
                 </form>
             </div>
         )
     } else if(show == 13) {
         return (
-            <div className='custom-modal col-4 rounded shadow position-fixed p-0'>
+            <div className='modal-form'>
                 <div className='d-flex justify-content-end pt-3 px-3'>
-                    <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                    <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                 </div>
                 <form className="row px-4 py-1">
                     <div className="row input-group mx-auto my-2 py-3">
@@ -339,31 +353,31 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                         <div className="form-row">
                             <select className="form-control" id="order-status" onChange={(e) => setStatus(e.target.value)}>
                                 <option selected disabled hidden>{`Current Status: ${orders.find(order => editAction == order.id).status}`}</option>
-                                <option>Waiting for Production</option>
-                                <option>Waiting for Graphics Designer</option>
-                                <option>Shipping to Warehouse</option>
-                                <option>Waiting for Deliver</option>
-                                <option>Delivered</option>
+                                <option value='Waiting for Production'>Waiting for Production</option>
+                                <option value='Waiting for Graphics Designer'>Waiting for Graphics Designer</option>
+                                <option value='Shipping to Warehouse'>Shipping to Warehouse</option>
+                                <option value='Waiting for Deliver'>Waiting for Deliver</option>
+                                <option value='Delivered'>Delivered</option>
                             </select>
                         </div>
                     </div>
                     <div className="row input-group py-4 d-flex justify-content-end">
-                        <button type='button' className='btn btn-info col-2 text-dark submit' onClick={() => patchOrders({orderId: editAction, status}, token)}>Edit</button>
+                        <button type='button' className='btn btn-info col-2 text-dark submit' onClick={() => patchOrders({orderId: editAction, status: (status ? status : orders.find(order => editAction == order.id).status)}, token)}>Edit</button>
                     </div>
                 </form>
             </div>
         )
     } else if(show == 15) {
         return (
-            <div className='custom-modal col-4 rounded shadow position-fixed p-0'>
+            <div className='modal-form'>
                 <div className='d-flex justify-content-end pt-3 px-3'>
-                    <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                    <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                 </div>
                 <form className="row px-4 py-1">
                     <div className="row input-group mx-auto my-2 py-3">
                         <label className="list-attr" for="name">New Name</label>
                         <div className="form-row">
-                            <input className="form-control" type="text" id="name" onChange={(e) => setName(e.target.value)} placeholder={`Current Name: ${supplies.find(supply => editAction == supply.id).name}`}/>
+                            <input className="form-control" type="text" id="name" onChange={(e) => setName(e.target.value)} placeholder={`Current: ${supplies.find(supply => editAction == supply.id).name}`}/>
                         </div>
                     </div>
                     <div className="row input-group mx-auto my-2 py-3">
@@ -378,16 +392,16 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                         </div>
                     </div>
                     <div className="row input-group py-4 d-flex justify-content-end">
-                        <button type='button' onClick={() => console.log(patchSupplies({categoryId, id: editAction, name}, token))} className='btn btn-info col-2 text-dark submit'>Edit</button>
+                        <button type='button' onClick={() => console.log(patchSupplies({categoryId: (categoryId ? categoryId : supplies.find(supply => editAction == supply.id).categoryId), id: editAction, name: (name ? name : supplies.find(supply => editAction == supply.id).name)}, token))} className='btn btn-info col-2 text-dark submit'>Edit</button>
                     </div>
                 </form>
             </div>
         )
     } else if(show == 16) {
         return (
-            <div className='custom-modal col-4 rounded shadow position-fixed p-0'>
+            <div className='modal-form'>
                 <div className='d-flex justify-content-end pt-3 px-3'>
-                    <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                    <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                 </div>
                 <form className="row px-4 py-1">
                     <div className="row input-group mx-auto my-2 py-3">
@@ -404,7 +418,7 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                     <div className="row input-group mx-auto my-2 py-3">
                         <label className="list-attr" for="name">New Name</label>
                         <div className="form-row">
-                            <input className="form-control" type="text" id="name" onChange={(e) => setName(e.target.value)} placeholder={`Current Name: ${products.find(product => editAction == product.id).name}`}/>
+                            <input className="form-control" type="text" id="name" onChange={(e) => setName(e.target.value)} placeholder={`Current: ${products.find(product => editAction == product.id).name}`}/>
                         </div>
                     </div>
                     <div className="row input-group mx-auto my-2 py-3">
@@ -413,39 +427,39 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
                             <div className="input-group-prepend d-flex">
                                 <div className="input-group-text">$</div>
                             </div>
-                            <input className="form-control" type="text" id="price" onChange={(e) => setPrice(parseFloat(e.target.value))} placeholder={`Current Unit Price: $${products.find(product => editAction == product.id).price.toFixed(2)}`}/>
+                            <input className="form-control" type="text" id="price" onChange={(e) => setPrice(parseFloat(e.target.value))} placeholder={`Current: $${products.find(product => editAction == product.id).price.toFixed(2)}`}/>
                         </div>
                     </div>
                     <div className="row input-group py-4 d-flex justify-content-end">
-                        <button type='button' onClick={() => patchProducts({categoryId, id: editAction, name, price}, token)} className='btn btn-info col-2 text-dark submit'>Edit</button>
+                        <button type='button' onClick={() => patchProducts({categoryId: (categoryId ? categoryId : products.find(product => editAction == product.id).categoryId), id: editAction, name: (name ? name : products.find(product => editAction == product.id).name), price: (price ? price : products.find(product => editAction == product.id).price)}, token)} className='btn btn-info col-2 text-dark submit'>Edit</button>
                     </div>
                 </form>
             </div>
         )
     } else if(show == 17) {
         return (
-            <div className='custom-modal col-2 rounded shadow position-fixed p-0'>
+            <div className='modal-form'>
                 <div className='d-flex justify-content-end pt-3 px-3'>
-                    <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                    <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                 </div>
                 <form className="row px-4 py-1">
                     <div className="row input-group mx-auto my-2 py-3">
                         <label className="list-attr" for="name">New Name</label>
                         <div className="form-row">
-                            <input className="form-control" type="text" id="name" onChange={(e) => setName(e.target.value)} placeholder={`Current Name: ${categories.find(category => editAction == category.id).name}`}/>
+                            <input className="form-control" type="text" id="name" onChange={(e) => setName(e.target.value)} placeholder={`Current: ${categories.find(category => editAction == category.id).name}`}/>
                         </div>
                     </div>
                     <div className="row input-group py-4 d-flex justify-content-end">
-                        <button type='button' onClick={() => console.log(patchCategories({id: editAction, name}, token))} className='btn btn-info col-2 text-dark submit'>Edit</button>
+                        <button type='button' onClick={() => console.log(patchCategories({id: editAction, name: (name ? name : categories.find(category => editAction == category.id).name)}, token))} className='btn btn-info col-2 text-dark submit'>Edit</button>
                     </div>
                 </form>
             </div>
         )
     } else if(show == 23) {
         return (
-            <div className='custom-modal col-2 rounded shadow position-fixed p-0'>
+            <div className='modal-form'>
                 <div className='d-flex justify-content-end pt-3 px-3'>
-                    <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                    <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                 </div>
                 <form className="row px-4 py-3 rounded">
                     <p className="py-2">Are you sure you want to set status as <span className="list-attr">Shipping to Warehouse</span>?</p>
@@ -457,9 +471,9 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
         )
     } else if(show == 330) {
         return (
-            <div className='custom-modal col-2 rounded shadow position-fixed p-0'>
+            <div className='modal-form'>
                 <div className='d-flex justify-content-end pt-3 px-3'>
-                    <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                    <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                 </div>
                 <form className="row px-4 py-3 rounded">
                     <p className="py-2">Are you sure you want to set status as <span className="list-attr">Waiting for Deliver</span>?</p>
@@ -471,9 +485,9 @@ const ModalReports = ({ tableId, token, privilege, show, handleClose, addOrder, 
         )
     } else if(show == 331) {
         return (
-            <div className='custom-modal col-2 rounded shadow position-fixed p-0'>
+            <div className='modal-form'>
                 <div className='d-flex justify-content-end pt-3 px-3'>
-                    <button className='close px-0' onClick={() => handleClose(0)}><span>{ icons.x }</span></button>
+                    <button className='close px-0' onClick={handleClose}><span>{ icons.x }</span></button>
                 </div>
                 <form className="row px-4 py-3 rounded">
                     <p className="py-2">Are you sure you want to set status as <span className="list-attr">Delivered</span>?</p>

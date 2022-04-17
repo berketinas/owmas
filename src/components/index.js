@@ -4,6 +4,7 @@ import Tables from './Tables'
 import { icons } from './Icons'
 import Modal from './Modal'
 import ModalReports from './ModalReports'
+import TableMenu from './TableMenu'
 
 export {
     Header,
@@ -12,4 +13,5 @@ export {
     icons,
     Modal,
     ModalReports,
+    TableMenu,
 }

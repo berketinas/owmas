@@ -12,7 +12,7 @@ const Header = (props) => {
 					<div className='row m-0'>
 						<div className='nametag px-1'>
 							<p className='list-attr'>{props.name}</p>
-							<p>{props.role}</p>
+							<p>{props.role} {props.privilege}</p>
 						</div>
 					</div>
 					<div className='row m-0 d-flex justify-content-end'>

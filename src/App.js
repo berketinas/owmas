@@ -1,7 +1,7 @@
 import './bootstrap/css/bootstrap.min.css'
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { Login, Main } from './pages'
 
 
